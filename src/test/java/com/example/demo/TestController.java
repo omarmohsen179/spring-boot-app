@@ -44,7 +44,7 @@ public class TestController {
                 .andExpect(content().string(containsString("Hello, World")));
     }
     @Test
-    void shouldCreateTutorial() throws Exception {
+    void shouldCreateUser() throws Exception {
         User tutorial = new User("dsd","name", "Spring Boot @WebMvcTest", "Description", LocalDate.of(2000,5,2));
 
         mockMvc.perform(post("/api/user").contentType(MediaType.APPLICATION_JSON)
@@ -67,7 +67,7 @@ public class TestController {
     }
 
     @Test
-    void shouldReturnNotFoundTutorial() throws Exception {
+    void shouldReturnNotFoundUser() throws Exception {
         long id = 1L;
 
         when(userService.GetById(id)).thenReturn(Optional.empty());
@@ -76,102 +76,5 @@ public class TestController {
                 .andDo(print());
     }
 
-   /*  @Test
-   void shouldReturnListOfTutorials() throws Exception {
-        List<User> tutorials = new ArrayList<>(
-                Arrays.asList(new User(1L,"name", "Spring Boot @WebMvcTest", "Description", LocalDate.of(2000,5,2)),
-                        new User(1L,"name", "Spring Boot @WebMvcTest", "Description", LocalDate.of(2000,5,2)),
-                        new User(1L,"name", "Spring Boot @WebMvcTest", "Description", LocalDate.of(2000,5,2))));
 
-        when(userService.findAll()).thenReturn(tutorials);
-        mockMvc.perform(get("/api/tutorials"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.size()").value(tutorials.size()))
-                .andDo(print());
-    }
-
-    @Test
-    void shouldReturnListOfTutorialsWithFilter() throws Exception {
-        List<User> tutorials = new ArrayList<>(
-                Arrays.asList(new User(1L,"name", "Spring Boot @WebMvcTest", "Description", LocalDate.of(2000,5,2)),
-                        new User(1L,"name", "Spring Boot @WebMvcTest", "Description", LocalDate.of(2000,5,2))
-
-                ));
-
-        String title = "Boot";
-        MultiValueMap<String, String> paramsMap = new LinkedMultiValueMap<>();
-        paramsMap.add("title", title);
-
-        when(userService.findByTitleContaining(title)).thenReturn(tutorials);
-        mockMvc.perform(get("/api/tutorials").params(paramsMap))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.size()").value(tutorials.size()))
-                .andDo(print());
-    }
-
-    @Test
-    void shouldReturnNoContentWhenFilter() throws Exception {
-        String title = "BezKoder";
-        MultiValueMap<String, String> paramsMap = new LinkedMultiValueMap<>();
-        paramsMap.add("title", title);
-
-        List<User> tutorials = Collections.emptyList();
-
-        when(userService.findByTitleContaining(title)).thenReturn(tutorials);
-        mockMvc.perform(get("/api/tutorials").params(paramsMap))
-                .andExpect(status().isNoContent())
-                .andDo(print());
-    }
-
-    @Test
-    void shouldUpdateTutorial() throws Exception {
-        long id = 1L;
-
-        User tutorial = new User(id,"name", "Spring Boot @WebMvcTest", "Description", LocalDate.of(2000,5,2));
-        User updatedtutorial = new User(id, "name","Updated", "Updated", true);
-
-        when(userService.findById(id)).thenReturn(Optional.of(tutorial));
-        when(userService.save(any(User.class))).thenReturn(updatedtutorial);
-
-        mockMvc.perform(put("/api/tutorials/{id}", id).contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(updatedtutorial)))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.title").value(updatedtutorial.getTitle()))
-                .andExpect(jsonPath("$.description").value(updatedtutorial.getDescription()))
-                .andExpect(jsonPath("$.published").value(updatedtutorial.isPublished()))
-                .andDo(print());
-    }
-
-    @Test
-    void shouldReturnNotFoundUpdateTutorial() throws Exception {
-        long id = 1L;
-
-        User updatedtutorial = new User(1L,"name", "Spring Boot @WebMvcTest", "Description", LocalDate.of(2000,5,2));
-
-        when(userService.findById(id)).thenReturn(Optional.empty());
-        when(userService.save(any(User.class))).thenReturn(updatedtutorial);
-
-        mockMvc.perform(put("/api/tutorials/{id}", id).contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(updatedtutorial)))
-                .andExpect(status().isNotFound())
-                .andDo(print());
-    }
-
-    @Test
-    void shouldDeleteTutorial() throws Exception {
-        long id = 1L;
-
-        doNothing().when(userService).deleteById(id);
-        mockMvc.perform(delete("/api/tutorials/{id}", id))
-                .andExpect(status().isNoContent())
-                .andDo(print());
-    }
-
-    @Test
-    void shouldDeleteAllTutorials() throws Exception {
-        doNothing().when(userService).deleteAll();
-        mockMvc.perform(delete("/api/tutorials"))
-                .andExpect(status().isNoContent())
-                .andDo(print());
-    }*/
 }

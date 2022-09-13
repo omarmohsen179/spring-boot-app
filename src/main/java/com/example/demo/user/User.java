@@ -1,6 +1,9 @@
 package com.example.demo.user;
 
 import com.example.demo.role.Role;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -15,6 +18,9 @@ import javax.validation.constraints.Size;
                 @UniqueConstraint(columnNames = "username"),
                 @UniqueConstraint(columnNames = "email")
         })
+@Getter
+@Setter
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -62,61 +68,5 @@ public class User {
         Roles = roles;
     }
 
-    public User() {
 
-    }
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        email = email;
-    }
-
-    public Set<Role> getRoles() {
-        return Roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        Roles = roles;
-    }
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public LocalDate getDate_of_birth() {
-        return date_of_birth;
-    }
-
-    public void setDate_of_birth(LocalDate date_of_birth) {
-        this.date_of_birth = date_of_birth;
-    }
 }

@@ -1,9 +1,16 @@
 package com.example.demo.role;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Role {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,28 +20,9 @@ public class Role {
   @Column(length = 20)
   private ERole name;
 
-  public Role() {
-
-  }
-
-  public Long getId() {
-    return id;
-  }
-
   public Role(Long id, ERole name) {
     this.id = id;
     this.name = name;
   }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public ERole getName() {
-    return name;
-  }
-
-  public void setName(ERole name) {
-    this.name = name;
-  }
 }

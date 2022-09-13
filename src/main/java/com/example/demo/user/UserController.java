@@ -1,6 +1,8 @@
 package com.example.demo.user;
 
 
+import com.example.demo.configuration.exception.Types.NoDataException;
+import com.example.demo.configuration.exception.Types.RequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,21 @@ import java.util.Optional;
 public class UserController {
     @Autowired
     private UserService userService;
+
+
+    @GetMapping("exception-no-data")
+    public ResponseEntity<?> exceptionNodata(){
+        throw new NoDataException();
+    }
+    @GetMapping("exception")
+    public ResponseEntity<?> exception(){
+         throw new RequestException("new error");
+    }
+
+    @GetMapping("custom-internal-error")
+    public ResponseEntity<?> CustomInternalError() throws Exception {
+        throw new IllegalArgumentException("test");
+    }
     @GetMapping("home")
     public ResponseEntity<?> home(){
         return ResponseEntity.ok(    "Hello, World");
