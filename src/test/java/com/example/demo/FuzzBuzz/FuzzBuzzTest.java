@@ -1,7 +1,7 @@
 package com.example.demo.FuzzBuzz;
 
 
-import com.example.demo.configuration.FizzBuzz;
+import com.example.demo.configuration.test.FizzBuzz;
 
 
 import org.junit.jupiter.api.*;

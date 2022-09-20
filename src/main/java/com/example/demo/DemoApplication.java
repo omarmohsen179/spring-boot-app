@@ -23,7 +23,7 @@ public class DemoApplication {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunnerxxx(ApplicationContext ctx) {
+    public CommandLineRunner commandLineRunnerApp(ApplicationContext ctx) {
         return args -> {
 
             System.out.println("Let's inspect the beans provided by Spring Boot:");

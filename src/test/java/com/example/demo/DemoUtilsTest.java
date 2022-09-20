@@ -1,8 +1,6 @@
 package com.example.demo;
-import com.example.demo.configuration.DemoUtils;
+import com.example.demo.configuration.test.DemoUtils;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.condition.*;
-import org.mockito.internal.matchers.ArrayEquals;
 
 import java.time.Duration;
 import java.util.Arrays;
