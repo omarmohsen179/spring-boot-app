@@ -13,7 +13,9 @@ configurations {
         extendsFrom annotationProcessor
     }
 }
-
+test {
+    systemProperty 'SYS_PROP', 'CI_AND_CD_DEPLOY'
+}
 repositories {
     jcenter()
    // mavenCentral()
@@ -30,9 +32,11 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-validation')
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-dependencies:2.7.3'
+    implementation 'org.springframework.kafka:spring-kafka'
 
 
     testImplementation( 'org.junit.jupiter:junit-jupiter:5.9.0')
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     runtimeOnly 'org.hsqldb:hsqldb:2.7.0'
 

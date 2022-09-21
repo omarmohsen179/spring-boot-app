@@ -1,4 +1,4 @@
-package com.example.demo.FuzzBuzz;
+package com.example.demo.fuzzbuzz;
 
 
 import com.example.demo.configuration.test.FizzBuzz;

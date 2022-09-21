@@ -76,5 +76,7 @@ public class User {
         this.date_of_birth = date_of_birth;
         Roles = roles;
     }
-
+    private String GetNameAndId(){
+        return this.getName()+" "+this.getId();
+    }
 }

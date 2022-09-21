@@ -1,4 +1,4 @@
-package com.example.demo.UserTesting;
+package com.example.demo.user_testing;
 
 import com.example.demo.user.User;
 import com.example.demo.user.UserRepository;
@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 

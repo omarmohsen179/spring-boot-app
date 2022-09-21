@@ -1,7 +1,6 @@
-package com.example.demo.UserTesting;
+package com.example.demo.user_testing;
 
 import com.example.demo.DemoApplication;
-import com.example.demo.configuration.exception.Types.BadRequestException;
 import com.example.demo.configuration.exception.Types.RequestException;
 import com.example.demo.user.User;
 import com.example.demo.user.UserRepository;
@@ -12,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
@@ -32,13 +30,11 @@ import static org.mockito.Mockito.*;
 @SpringBootTest(classes = DemoApplication.class)
 class UserServiceTest {
     // Create mock for DAO
-
     @Mock
     private UserRepository mockUserRepository;
+    //	Inject mock into service
     @InjectMocks
     private UserService mockUserService;
-
-    //	Inject mock into service
     public User Builder(){
         String email = "user@test.com";
         return new User("user","userTest",email,"pass", LocalDate.of(2000,2,25),

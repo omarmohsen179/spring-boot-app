@@ -1,6 +1,8 @@
 package com.example.demo;
 import com.example.demo.configuration.test.DemoUtils;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 
 import java.time.Duration;
 import java.util.Arrays;
@@ -34,7 +36,7 @@ class DemoUtilsTest {
 
     @Test
     @Order(3)
-    void test_equal_values() {
+     void test_equal_values() {
         assertEquals(6,test.add(4,2),"4+2= 6");
         assertNotEquals(7,test.add(4,2),"2 4+2= 6");
     }
@@ -49,8 +51,8 @@ class DemoUtilsTest {
     }
     @Test
     @Order(1)
-    //@EnabledIfEnvironmentVariable(named = "env",matches = "DEV")
-    void test_is_greater() {
+   //@DisplayName("my test case Customized name")
+    void test_is_Greater() {
         assertTrue(test.isGreater(3,2)," 3 greater than 2");
         assertFalse(test.isGreater(3,5)," 5 greater than 3");
     }
@@ -58,7 +60,7 @@ class DemoUtilsTest {
 
     @Test
     @Order(1)
-    @DisplayName("check null object")
+   // @DisplayName("check null object")
   //  @EnabledOnOs(OS.WINDOWS)
    // @EnabledOnJre(JRE.JAVA_8)
 
@@ -68,13 +70,14 @@ class DemoUtilsTest {
 
     @Test
     @Order(-7)
-  //  @EnabledIfSystemProperty(named = "SYS_PROP",matches = "CI_CD")
+    @EnabledIfSystemProperty(named = "SYS_PROP",matches = "CI_CD")
     void test_array() {
         String[] test_data = {"A", "B", "C"};
         assertArrayEquals(test_data,test.getFirstThreeLettersOfAlphabet());
 
     }
     @Test
+    @EnabledIfSystemProperty(named = "test",matches = "test")
     void test_array_not_equal() {
         String[] test_data = {"A", "B", "C"};
         assertFalse(Arrays.equals(test_data, test.getAcademyInList().stream().toArray()) );
@@ -88,7 +91,7 @@ class DemoUtilsTest {
     @Test
 
     void test_time_out() {
-        assertTimeoutPreemptively(Duration.ofSeconds(3),()->test.checkTimeout(),"Should throw" );
+        assertTimeoutPreemptively(Duration.ofSeconds(3),()->test.checkTimeout(),"Should noy timeout" );
         assertTimeout(Duration.ofSeconds(3),()->test.checkTimeout(),"Should throw" );
     }
 }
