@@ -15,7 +15,7 @@ public class Controller {
     @Autowired
     KafkaTemplate<String, String> kafkaTemplate;
 
-    private static final String TOPIC = "NewTopic";
+    private static final String TOPIC = "topic2";
 
     // Publish messages using the GetMapping
     @GetMapping("/publish/{message}")
