@@ -17,8 +17,6 @@ public class Reflection {
     @BeforeEach
     void setUp(){
         user= User.builder().id(15L).name("Test").email("Email@gmail.com").build();
-
-
     }
     @Test
     void SetPrivateField(){
@@ -34,7 +32,5 @@ public class Reflection {
     void GetPrivateMethod(){
         String nameAndId = ReflectionTestUtils.invokeMethod(user,"GetNameAndId");
         assertEquals(user.getName()+" "+user.getId(),nameAndId,"Fail to access private method");
-
-        System.out.println(user.getId());
     }
 }

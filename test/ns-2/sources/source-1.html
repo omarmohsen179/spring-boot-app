@@ -1,0 +1,141 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Config</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.demo.configuration</a>
+</div>
+
+<h1>Coverage Summary for Class: Config (com.example.demo.configuration)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Config</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (2/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (2/3)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Config$$EnhancerBySpringCGLIB$$7ca496a7</td>
+  </tr>
+  <tr>
+    <td class="name">Config$$EnhancerBySpringCGLIB$$7ca496a7$$FastClassBySpringCGLIB$$bc527937</td>
+  </tr>
+  <tr>
+    <td class="name">Config$$FastClassBySpringCGLIB$$4726c9d4</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (2/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (2/3)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.demo.configuration;
+&nbsp;
+&nbsp;import com.example.demo.configuration.test.DemoUtils;
+&nbsp;import com.example.demo.user.User;
+&nbsp;import com.example.demo.user.UserService;
+&nbsp;import org.springframework.context.annotation.Bean;
+&nbsp;import org.springframework.context.annotation.Configuration;
+&nbsp;import org.springframework.context.annotation.Scope;
+&nbsp;
+&nbsp;@Configuration
+<b class="fc">&nbsp;public class Config {</b>
+&nbsp;    @Bean(name = &quot;applicationDao&quot;)
+&nbsp;    @Scope(value = &quot;singleton&quot;)
+&nbsp;    public DemoUtils ApplicationDao() {
+<b class="fc">&nbsp;        return new DemoUtils();</b>
+&nbsp;    }
+&nbsp;    @Bean(name = &quot;user&quot;)
+&nbsp;    @Scope(value = &quot;prototype&quot;)
+&nbsp;    public User getUser() {
+<b class="nc">&nbsp;        return null;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-09-22 16:18</div>
+</div>
+</body>
+</html>
