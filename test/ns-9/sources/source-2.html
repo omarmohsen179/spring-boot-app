@@ -1,0 +1,150 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > FizzBuzz</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.demo.configuration.test</a>
+</div>
+
+<h1>Coverage Summary for Class: FizzBuzz (com.example.demo.configuration.test)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FizzBuzz</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.demo.configuration.test;
+&nbsp;
+<b class="nc">&nbsp;public class FizzBuzz {</b>
+&nbsp;
+&nbsp;    // If number is divisible by 3, print Fizz
+&nbsp;    // If number is divisible by 5, print Buzz
+&nbsp;    // If number is divisible by 3 and 5, print FizzBuzz
+&nbsp;    // If number is NOT divisible by 3 or 5, then print the number
+&nbsp;
+&nbsp;    public static String compute(int i) {
+&nbsp;        
+<b class="nc">&nbsp;        StringBuilder result = new StringBuilder();</b>
+<b class="nc">&nbsp;        if (i % 3 == 0) {</b>
+<b class="nc">&nbsp;            result.append(&quot;Fizz&quot;);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (i % 5 == 0) {</b>
+<b class="nc">&nbsp;            result.append(&quot;Buzz&quot;);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (result.isEmpty()) {</b>
+<b class="nc">&nbsp;            result.append(i);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return result.toString();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /*
+&nbsp;    public static String compute(int i) {
+&nbsp;
+&nbsp;        if ( (i % 3 ==0) &amp;&amp; (i % 5 ==0) ) {
+&nbsp;            return &quot;FizzBuzz&quot;;
+&nbsp;        }
+&nbsp;        else if (i % 3 == 0) {
+&nbsp;            return &quot;Fizz&quot;;
+&nbsp;        }
+&nbsp;        else if (i % 5 == 0) {
+&nbsp;            return &quot;Buzz&quot;;
+&nbsp;        }
+&nbsp;        else {
+&nbsp;            return Integer.toString(i);
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;    */
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-09-22 16:18</div>
+</div>
+</body>
+</html>

@@ -1,19 +1,28 @@
 package com.example.demo;
 import com.example.demo.configuration.test.DemoUtils;
+import com.example.demo.user.User;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
+import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 
 import java.time.Duration;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.doThrow;
 
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@SpringBootTest
 class DemoUtilsTest {
+    @Mock
     static DemoUtils test;
+
 
 
     @BeforeAll
@@ -94,4 +103,5 @@ class DemoUtilsTest {
         assertTimeoutPreemptively(Duration.ofSeconds(3),()->test.checkTimeout(),"Should noy timeout" );
         assertTimeout(Duration.ofSeconds(3),()->test.checkTimeout(),"Should throw" );
     }
+
 }

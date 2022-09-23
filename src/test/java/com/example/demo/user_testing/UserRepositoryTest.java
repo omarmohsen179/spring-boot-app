@@ -38,7 +38,7 @@ public class UserRepositoryTest {
     }
 
     @Test
-    void AddTest()
+    void canAddTest()
     {
         userRepository.save(Builder());
         assertThat(userRepository.existsByEmail(Builder().getEmail())).isTrue();

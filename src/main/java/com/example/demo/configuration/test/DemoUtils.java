@@ -1,7 +1,10 @@
 package com.example.demo.configuration.test;
 
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
+@NoArgsConstructor
 public class DemoUtils {
 
     private String academy = "Luv2Code Academy";

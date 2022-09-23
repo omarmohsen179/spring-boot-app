@@ -42,18 +42,13 @@ class UserServiceTest {
         );
     }
 
-    @BeforeEach
-    public void setUp() {
-        //MockitoAnnotations.openMocks(this);
-       // underTest = new UserService(userRepository);
-    }
+
 
     @Test
     public void canGetAllUsers()
     {
-        //check if passed on the userRepository.findAll() function or not
         mockUserService.GetAll();
-        verify(mockUserRepository).findAll();
+        verify(mockUserRepository,times(1)).findAll();
     }
 
     @Test

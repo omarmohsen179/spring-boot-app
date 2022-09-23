@@ -2,6 +2,7 @@ package com.example.demo.user;
 
 import com.example.demo.configuration.exception.Types.RequestException;
 import com.example.demo.configuration.security.services.UserDetailsImpl;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
+@AllArgsConstructor
 public class UserService  implements UserDetailsService {
 
     @Autowired
