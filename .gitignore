@@ -15,11 +15,6 @@ bin/
 
 
 ### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-out/
 
 
 ### NetBeans ###
@@ -29,5 +24,3 @@ out/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
-.vscode/
