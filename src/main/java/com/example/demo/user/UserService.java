@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,11 +14,16 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Component
 public class UserService  implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private  UserRepository userRepository;
+
+    @Transactional(readOnly = true)
+    public int TestService(){
+        return 200;
+    }
     @Transactional(readOnly = true)
     public List<User> GetAll(){
         return userRepository.findAll();
@@ -28,23 +33,30 @@ public class UserService  implements UserDetailsService {
         return userRepository.findById(Id);
     }
     @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED, rollbackFor = Throwable.class)
-    public User Add(User user){
-        if(userRepository.findByUsername(user.getUsername()).isPresent()){
-            throw new RequestException("username taken");
-        }
-        if(userRepository.findByUsername(user.getEmail()).isPresent()){
-            throw new RequestException("email taken");
-        }
+    public User AddUser(User user) throws RequestException {
+        if(userRepository.existsByEmail(user.getEmail()))
+            throw new RequestException("Email " + user.getEmail() + " taken");
+        if(userRepository.existsByUsername(user.getUsername()))
+            throw new RequestException("Username " + user.getEmail() + " taken");
         return userRepository.save(user);
     }
     @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED, rollbackFor = Throwable.class)
-    public User Update(User user){
-        if(userRepository.findById(user.getId()).isEmpty()){
-            throw new RequestException("user not found");
-        }
+    public User UpdateUser(User user) throws RequestException {
+        // check if another user take this mail or username or not except not
+        if(userRepository.existsByEmailAndIdNot(user.getEmail(),user.getId()))
+            throw new RequestException("Email " + user.getEmail() + " taken");
+        if( userRepository.existsByEmailAndIdNot(user.getEmail(),user.getId()))
+            throw new RequestException("Username " + user.getEmail() + " taken");
         return userRepository.save(user);
     }
-
+    @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED, rollbackFor = Throwable.class)
+    public void DeleteUser(Long Id) throws RequestException {
+        if(!userRepository.existsById(Id)) {
+            throw new RequestException(
+                    "user with id " + Id + " does not exists");
+        }
+        userRepository.deleteById(Id);
+    }
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

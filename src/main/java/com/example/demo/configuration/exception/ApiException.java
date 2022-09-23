@@ -1,24 +1,23 @@
 package com.example.demo.configuration.exception;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
 import java.time.ZonedDateTime;
-@Getter
 
-public class ApiException {
 
-    private final String message;
-    private final Throwable throwable;
-    private final HttpStatus httpStatus;
-    private final ZonedDateTime timestamp;
+public record ApiException(String message, HttpStatus httpStatus, ZonedDateTime timestamp) {
+    @Override
+    public String message() {
+        return message;
+    }
 
-    public ApiException(String message, Throwable throwable, HttpStatus httpStatus, ZonedDateTime timestamp) {
-        this.message = message;
-        this.throwable = throwable;
-        this.httpStatus = httpStatus;
-        this.timestamp = timestamp;
+    @Override
+    public HttpStatus httpStatus() {
+        return httpStatus;
+    }
+
+    @Override
+    public ZonedDateTime timestamp() {
+        return timestamp;
     }
 }

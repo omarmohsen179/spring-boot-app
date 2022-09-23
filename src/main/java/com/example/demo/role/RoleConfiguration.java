@@ -1,13 +1,9 @@
 package com.example.demo.role;
 
-import com.example.demo.user.User;
-import com.example.demo.user.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Configuration
