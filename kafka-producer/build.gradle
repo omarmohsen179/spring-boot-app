@@ -23,6 +23,7 @@ dependencies {
 	implementation 'com.launchdarkly:okhttp-eventsource:2.7.1'
 	implementation 'com.fasterxml.jackson.core:jackson-core:2.13.4'
 	implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {

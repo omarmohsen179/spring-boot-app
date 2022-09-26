@@ -23,7 +23,6 @@ public class ApiExceptionHandler  extends ResponseEntityExceptionHandler {
 
         return new ResponseEntity<>(new ApiException(
                 e.getMessage(),
-                e,
                 badRequest,
                 ZonedDateTime.now(ZoneId.of("Z"))
         ),badRequest);
@@ -33,7 +32,6 @@ public class ApiExceptionHandler  extends ResponseEntityExceptionHandler {
         HttpStatus error  =  HttpStatus.NOT_FOUND;
         return new ResponseEntity<>(new ApiException(
                 e.getMessage(),
-                null,
                 error,
                 ZonedDateTime.now(ZoneId.of("Z"))
         ),error);
@@ -45,7 +43,6 @@ public class ApiExceptionHandler  extends ResponseEntityExceptionHandler {
         HttpStatus error  =  HttpStatus.INTERNAL_SERVER_ERROR;
         return new ResponseEntity<>(new ApiException(
                 "custom internal error",
-                null,
                 error,
                 ZonedDateTime.now(ZoneId.of("Z"))
         ),error);
