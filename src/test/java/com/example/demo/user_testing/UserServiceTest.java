@@ -58,7 +58,7 @@ class UserServiceTest {
         //then
         ArgumentCaptor<User> userArgumentCaptor =
                 ArgumentCaptor.forClass(User.class);
-        verify(mockUserRepository).save(userArgumentCaptor.capture());
+        verify(mockUserRepository, times(1)).save(userArgumentCaptor.capture());
         assertThat(userArgumentCaptor.getValue()).isEqualTo(Builder());
     }
     @Test

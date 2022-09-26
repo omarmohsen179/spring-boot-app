@@ -18,7 +18,4 @@ public class KafkaProducerApplication{
 		SpringApplication.run(KafkaProducerApplication.class, args);
 	}
 
-
-
-
 }

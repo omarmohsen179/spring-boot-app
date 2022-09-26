@@ -46,6 +46,7 @@ public class MockTest {
     void throw_run_time() {
         Object nullUser = context.getBean("user");
         //check if checkNull function throw runtime Error
+        //with mock reposatory
         doThrow(new RuntimeException()).when(applicationDaoX).checkNull(nullUser);
         assertThrows(RuntimeException.class,()->{
             applicationDaoX.checkNull(nullUser);
