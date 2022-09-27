@@ -1,6 +1,7 @@
 package com.example.demo.user;
 
 import com.example.demo.role.Role;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import javax.persistence.*;
@@ -36,6 +37,7 @@ public class User {
     @Email
     private String email;
     private String password;
+   // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate date_of_birth;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",

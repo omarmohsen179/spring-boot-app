@@ -18,7 +18,8 @@ test {
 }
 repositories {
     jcenter()
-   // mavenCentral()
+    mavenCentral()
+    // mavenCentral()
 }
 
 dependencies {
@@ -37,6 +38,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-dependencies:2.7.3'
     implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.4'
 
     runtimeOnly 'org.hsqldb:hsqldb:2.7.0'
 
